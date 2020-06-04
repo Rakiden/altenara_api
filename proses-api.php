@@ -15,11 +15,10 @@ define('DB_HOST','localhost');
 $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 
 $postjson = json_decode(file_get_contents('php://input'),true);
-$today = date('Y-m-d');
+
 if($postjson['aksi']=="cargarProductos"){
     $query = mysqli_query($mysqli, "SELECT * FROM ps_product_lang LIMIT 1");
-    $check = mysqli_num_rows($query);
-
+    echo '<p>'$mysqli'</p>';
     if($query) $result = json_encode(array('success'=>$query));
     else $result = json_encode(array('success'=>false, 'msg'=>$check));
 
