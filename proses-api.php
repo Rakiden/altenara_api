@@ -7,7 +7,7 @@ header("Content-Type: application/json; charset=UTF-8");
 
 //include "https://serverapiprueba.herokuapp.com/config/config.php";
 
-define('DB_NAME','altenaradad');
+define('DB_NAME','altenara');
 define('DB_USER','root');
 define('DB_PASSWORD','pestillo');
 define('DB_HOST','localhost');
