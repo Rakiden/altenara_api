@@ -10,7 +10,7 @@ header("Content-Type: application/json; charset=UTF-8");
 define('DB_NAME','altenara');
 define('DB_USER','root');
 define('DB_PASSWORD','pestillo');
-define('DB_HOST','google');
+define('DB_HOST','localhost');
 
 $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 
@@ -18,9 +18,10 @@ $postjson = json_decode(file_get_contents('php://input'),true);
 $today = date('Y-m-d');
 if($postjson['aksi']=="cargarProductos"){
     $query = mysqli_query($mysqli, "SELECT * FROM ps_product_lang LIMIT 1");
-    
+    $check = mysqli_num_rows($query);
+
     if($query) $result = json_encode(array('success'=>$query));
-    else $result = json_encode(array('success'=>false, 'msg'=>$mysqli));
+    else $result = json_encode(array('success'=>false, 'msg'=>$check));
 
     echo $result;
   }
