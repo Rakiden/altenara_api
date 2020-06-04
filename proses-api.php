@@ -7,10 +7,10 @@ header("Content-Type: application/json; charset=UTF-8");
 
 //include "https://serverapiprueba.herokuapp.com/config/config.php";
 
-define('DB_NAME','sql7343494');
-define('DB_USER','sql7343494');
-define('DB_PASSWORD','2v8U3xX3t4');
-define('DB_HOST','sql7.freemysqlhosting.net');
+define('DB_NAME','altenara');
+define('DB_USER','root');
+define('DB_PASSWORD','pestillo');
+define('DB_HOST','localhost');
 
 $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 
