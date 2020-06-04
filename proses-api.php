@@ -21,7 +21,7 @@ if($postjson['aksi']=="cargarProductos"){
     $query = mysqli_query($mysqli, "SELECT * FROM ps_product_lang LIMIT 1");
     
     if($query) $result = json_encode(array('success'=>$query));
-    else $result = json_encode(array('success'=>false, 'msg'=>$query));
+    else $result = json_encode(array('success'=>false, 'msg'=>$mysqli));
 
     echo $result;
   }
