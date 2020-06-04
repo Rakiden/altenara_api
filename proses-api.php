@@ -7,7 +7,7 @@ header("Content-Type: application/json; charset=UTF-8");
 
 //include "https://serverapiprueba.herokuapp.com/config/config.php";
 
-define('DB_NAME','altenara');
+define('DB_NAME','altenaradad');
 define('DB_USER','root');
 define('DB_PASSWORD','pestillo');
 define('DB_HOST','localhost');
@@ -18,7 +18,7 @@ $postjson = json_decode(file_get_contents('php://input'),true);
 
 if($postjson['aksi']=="cargarProductos"){
     $query = mysqli_query($mysqli, "SELECT * FROM ps_product_lang LIMIT 1");
-    
+
     if($query) $result = json_encode(array('success'=>$query));
     else $result = json_encode(array('success'=>false, 'msg'=>$check));
 
