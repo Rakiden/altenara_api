@@ -18,7 +18,7 @@ $postjson = json_decode(file_get_contents('php://input'),true);
 
 if($postjson['aksi']=="cargarProductos"){
     $query = mysqli_query($mysqli, "SELECT * FROM ps_product_lang LIMIT 1");
-    echo '<p>'$mysqli'</p>';
+    
     if($query) $result = json_encode(array('success'=>$query));
     else $result = json_encode(array('success'=>false, 'msg'=>$check));
 
