@@ -17,10 +17,10 @@ $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 $postjson = json_decode(file_get_contents('php://input'),true);
 
 if($postjson['aksi']=="cargarProductos"){
-    $query = mysqli_query($mysqli, "SELECT * FROM ps_product_lang WHERE id_product = 1");
+    $query = mysqli_query($mysqli, "SELECT * FROM ps_product_lang");
 
     if($query) $result = json_encode(array('success'=>$query));
-    else $result = json_encode(array('success'=>false, 'msg'=>$check));
+    else $result = json_encode(array('success'=>false, 'msg'=>$query));
 
     echo $result;
   }
