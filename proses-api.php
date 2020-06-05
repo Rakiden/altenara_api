@@ -5,28 +5,22 @@ header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
 header("Content-Type: application/json; charset=UTF-8");
 
-include "https://serverapiprueba.herokuapp.com/config/config.php";
+//include "https://serverapiprueba.herokuapp.com/config/config.php";
 
-define('DB_NAME','sql7343494');
-define('DB_USER','sql7343494');
-define('DB_PASSWORD','2v8U3xX3t4');
-define('DB_HOST','sql7.freemysqlhosting.net');
+define('DB_NAME','altenara');
+define('DB_USER','root');
+define('DB_PASSWORD','pestillo');
+define('DB_HOST','http://localhost');
 
 $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 
 $postjson = json_decode(file_get_contents('php://input'),true);
-$today = date('Y-m-d');
+
 if($postjson['aksi']=="cargarProductos"){
-    $password = md5($postjson['password']);
-    $query = mysqli_query($mysqli, "INSERT INTO master_user SET
-        username = '$postjson[username]',
-        password = '$password',
-        status   = 'y',
-        created_at = '$today'
-    ");
-    
-    if($query) $result = json_encode(array('success'=>true));
-    else $result = json_encode(array('success'=>false, 'msg'=>"Error, please try again"));
+    $query = mysqli_query($mysqli, "SELECT * FROM ps_product_lang WHERE id_product = 1");
+
+    if($query) $result = json_encode(array('success'=>$query));
+    else $result = json_encode(array('success'=>false, 'msg'=>$query));
 
     echo $result;
   }
