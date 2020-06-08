@@ -11,6 +11,10 @@ define('DB_PASSWORD','pestillo');
 define('DB_HOST','localhost');
 
 $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+$dbname = DB_NAME;
+$dbuser = DB_USER;
+$dbpassword = DB_PASSWORD;
+$dbhost = DB_HOST;
 
 $postjson = json_decode(file_get_contents('php://input'),true);
 
@@ -19,7 +23,7 @@ if($postjson['aksi']=="cargarProductos"){
 
 
     if($query) $result = json_encode(array('success'=>true));
-    else $result = json_encode(array('success'=>false, 'msg'=>""DB_NAME""));
+    else $result = json_encode(array('success'=>false, 'msg'=>" " + $dbname + " " + $dbuser + " " + $db_host + " "));
 
     echo $result;
   }
