@@ -23,7 +23,7 @@ if($postjson['aksi']=="cargarProductos"){
 
 
   if($query) $result = json_encode(array('success'=>true));
-  else $result = json_encode(array('success'=>false, 'msg'=>"dbname: " + $dbname + " dbuser: " + $dbuser + " dbhost:" + $db_host));
+  else $result = json_encode(array('success'=>false, 'msg'=>"dbname: ".$dbname." dbuser: ".$dbuser." dbhost:".$db_host));
 
   echo $result;
 }
