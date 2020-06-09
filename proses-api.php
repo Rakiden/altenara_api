@@ -15,6 +15,6 @@ $dbname = DB_NAME;
 $dbuser = DB_USER;
 $dbpassword = DB_PASSWORD;
 $dbhost = DB_HOST;
-echo "dbname: " + $dbname + " dbuser: " + $dbuser + " dbhost:" + $db_host;
+echo ("dbname: " + $dbname + " dbuser: " + $dbuser + " dbhost:" + $db_host);
 
 ?>
