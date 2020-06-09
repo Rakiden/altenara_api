@@ -15,16 +15,6 @@ $dbname = DB_NAME;
 $dbuser = DB_USER;
 $dbpassword = DB_PASSWORD;
 $dbhost = DB_HOST;
+echo "dbname: " + $dbname + " dbuser: " + $dbuser + " dbhost:" + $db_host;
 
-$postjson = json_decode(file_get_contents('php://input'),true);
-
-if($postjson['aksi']=="cargarProductos"){
-  $query = mysqli_query($mysqli, "SELECT * FROM ps_product_lang WHERE id_product = 1");
-
-
-  if($query) $result = json_encode(array('success'=>true));
-  else $result = json_encode(array('success'=>false, 'msg'=>"dbname: " + $dbname + " dbuser: " + $dbuser + " dbhost:" + $db_host + " "));
-
-  echo $result;
-}
 ?>
