@@ -8,14 +8,14 @@ header("Content-Type: application/json; charset=UTF-8");
 define('DB_NAME','altenara');
 define('DB_USER','root');
 define('DB_PASSWORD','pestillo');
-define('DB_HOST','localhost');
+define('DB_HOST','127.0.0.1');
 
 $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 
 $postjson = json_decode(file_get_contents('php://input'),true);
 
 if($postjson['mode']=="cargarProductos"){
-  $query = mysqli_query($mysqli, "SELECT * FROM ps_product_lang WHERE id_product ='1'");
+  $query = mysqli_query($mysqli, "SELECT * FROM ps_product_lang WHERE id_product =1");
   $data = array();
 
   while($row=mysqli_fetch_array($query)){
