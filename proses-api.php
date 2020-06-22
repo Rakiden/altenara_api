@@ -15,7 +15,7 @@ $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 $postjson = json_decode(file_get_contents('php://input'),true);
 
 if($postjson['mode']=="cargarProductos"){
-  echo json_encode(array('success'=>false, 'msg'=>"Error, intentelo de nuevo");
+  echo json_encode(array('success'=>false, 'msg'=>"Error, intentelo de nuevo"));
 }
 
 ?>
