@@ -14,9 +14,9 @@ $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 
 $postjson = json_decode(file_get_contents('php://input'),true);
 
-//echo json_encode(array('success'=>false, 'msg'=>"Error, intentelo de nuevo"));
+echo json_encode(array('success'=>false, 'msg'=>"Error, intentelo de nuevo"));
 
-if($postjson['mode']=="cargarProductos"){
+/*if($postjson['mode']=="cargarProductos"){
   
   $query = mysqli_query($mysqli, "SELECT * FROM ps_product_lang WHERE id_product ='1'");
   $data = array();
@@ -29,6 +29,6 @@ if($postjson['mode']=="cargarProductos"){
   else $result = json_encode(array('success'=>false, 'msg'=>"Error, intentelo de nuevo"));
 
   echo $result;
-}
+}*/
 
 ?>
