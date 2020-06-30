@@ -42,6 +42,30 @@ if($postjson['mode']=="cargarProductos"){
   else $result = json_encode(array('success'=>false, 'msg'=>"Error, intentelo de nuevo"));
 
   echo $result;
+}elseif($postjson['mode']=="cargarProducto"){
+  
+  $query1 = mysqli_query($mysqli, "SELECT id_product, meta_title, meta_description FROM ps_product_lang WHERE id_product='$postjson[id]'");
+  $query2 = mysqli_query($mysqli, "SELECT CAST(price AS DECIMAL(10,2)) FROM ps_product WHERE id_product='$postjson[id]'");
+
+  if($query1){
+    $data1 = mysqli_fetch_array($query1);
+    $product = array(
+        'id_product' =>$data1['id_product'], 
+        'meta_title' =>$data1['meta_title'],
+        'meta_description' =>$data1['meta_description']
+    );
+
+    $data2 = mysqli_fetch_array($query2);
+    $price = array(
+        'price' =>$data2[0]
+    );
+
+  $result = json_encode(array('success'=>true, 'product'=>$product, 'price'=>$price));
+  }else{
+    $result = json_encode(array('success'=>false, 'msg'=>"Error, intentelo de nuevo"));
+  }
+
+  echo $result;
 }
 
 ?>
